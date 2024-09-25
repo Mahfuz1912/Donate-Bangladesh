@@ -3,38 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Donate For Bangladesh</title>
 </head>
 <body class="bg-[#FFFFFF]">
-    <header class="bg-[#F9F7F3] h-28">
-        <div class="navbar w-[90%] m-auto pt-6">
-            <div class="navbar-start">
-                <button class="btn text-[#111111] hover:bg-[#B4F461] hover:text-xl bg-[#B4F461] border-none">Success</button>
-            </div>
-            <div class="navbar-center">
-              <a class="flex justify-center items-center">
-                <img src="image/logo.png" alt=""><span class=" font-semibold text-[#111111] text-xl">Donate Bangladesh</span>
-              </a>
-            </div>
-            <div class="navbar-end">
-                <div class="flex justify-center items-center gap-3">
-                    <img src="image/coin.png" alt="">
-                    <h1 id="mainBlance" class=" text-[#111111B3] text-xl font-medium">5000</h1>
-                    <span>&nbsp;BDT</span>
+    <header class="sticky top-0 z-50 backdrop-opacity-10 backdrop-invert bg-white/80">
+        <section class="bg-[#F9F7F3] h-28">
+            <div class="navbar w-[90%] m-auto pt-6">
+                <div class="navbar-start">
+                    <button id="blogBtn" class="btn text-[#111111] hover:bg-[#B4F461] bg-[#B4F461] border-none">Blog</button>
+                </div>
+                <div class="navbar-center">
+                  <a class="flex justify-center items-center">
+                    <img src="image/logo.png" alt=""><span class=" font-semibold text-[#111111] text-xl">Donate Bangladesh</span>
+                  </a>
+                </div>
+                <div class="navbar-end">
+                    <div class="flex justify-center items-center gap-3">
+                        <img src="image/coin.png" alt="">
+                        <h1 id="mainBlance" class=" text-[#111111B3] text-xl font-medium">5000</h1>
+                        <span class=" text-[#111111B3] text-xl font-medium">BDT</span>
+                    </div>
                 </div>
             </div>
-          </div>
-    </header>
+        </section>
 
-    <main  class="pb-20 mt-20 w-[90%] m-auto">
-        <section id="" class="pb-20 flex justify-center items-center gap-4">
+        <section class="pt-10 pb-7 flex justify-center items-center gap-4">
 
             <button id="donateNow" class="btn btn-primary text-[#111111] font-semibold text-xl border-none hover:bg-[#B4F461] bg-[#B4F461]">Donation</button>
             <button id="history" class="btn btn-ghost  text-[#111111]  border-[#1111114D]">History</button>
         </section>
+    </header>
 
+    <main  class="pb-20 pt-5 w-[90%] m-auto">
         <!-- card Section -->
         <section id="donateCard">
             <div class="mt-8 card card-side gap-6 border p-7">
@@ -66,9 +71,26 @@
                     ⚠️ Donation cannot exceed your Blance!
                   </p>
 
-                  <div class="card-actions">
-                    <button id="Noakhili-now" class="btn btn-primary mt-5 text-[#111111] font-semibold text-xl border-none hover:bg-[#B4F461] bg-[#B4F461] w-full">Donate Now</button>
-                  </div>
+                   <div class="card-actions">
+                    <button  id="Noakhili-now" onclick="my_modal_1.showModal()" class="btn btn-primary mt-5 text-[#111111] font-semibold text-xl border-none hover:bg-[#B4F461] bg-[#B4F461] w-full">Donate Now</button>
+
+                    <dialog id="my_modal_1" class="modal">
+                        <div class="modal-box pt-9 pb-9 justify-center text-center">
+                          <h3 class="text-5xl font-extrabold">Congrates!</h3>
+                          <div class="mt-4 flex justify-center">
+                            <img src="image/coin.png" alt="">
+                          </div>
+                          <p class="py-4">You Have Donated for Humankind</p>
+                          <p class="font-bold text-2xl">Successfully</p>
+                          <div class="modal-action justify-center">
+                            <form method="dialog">
+                              <button type="submit" id="closeBtn" onclick="clearField2()" class="btn">Close Conformation</button>
+                            </form>
+                          </div>
+                        </div>
+                      </dialog>
+
+                    </div>
                 </div>
             </div>
 
@@ -101,7 +123,7 @@
                     ⚠️ Donation cannot exceed your Blance!
                   </p>
                   <div class="card-actions">
-                    <button id="feni-now" class="btn btn-primary mt-5 text-[#111111] font-semibold text-xl border-none hover:bg-[#B4F461] bg-[#B4F461] w-full">Donate Now</button>
+                    <button onclick="my_modal_1.showModal()" id="feni-now" class="btn btn-primary mt-5 text-[#111111] font-semibold text-xl border-none hover:bg-[#B4F461] bg-[#B4F461] w-full">Donate Now</button>
                   </div>
                 </div>
             </div>
@@ -135,15 +157,16 @@
                     ⚠️ Donation cannot exceed your Blance!
                   </p>
                   <div class="card-actions">
-                    <button id="donate_stProtest" class="btn btn-primary mt-5 text-[#111111] font-semibold text-xl border-none hover:bg-[#B4F461] bg-[#B4F461] w-full">Donate Now</button>
+                    <button onclick="my_modal_1.showModal()" id="donate_stProtest" class="btn btn-primary mt-5 text-[#111111] font-semibold text-xl border-none hover:bg-[#B4F461] bg-[#B4F461] w-full">Donate Now</button>
                   </div>
                 </div>
             </div>
 
         </section>
 
+
         <div id="history-section" class="hidden">
-          <div id="historyList" class="grid grid-cols-1 gap-5"></div>
+            <div id="historyList" class="grid grid-cols-1 gap-5"></div>
         </div>
     </main>
 

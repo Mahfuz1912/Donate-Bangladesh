@@ -6,13 +6,18 @@ document.getElementById('Noakhili-now').addEventListener('click',function(){
         document.getElementById('logic-error1').classList.remove('hidden');
         return;
     }
+
+    if(noakhiliDonate < 0 || isNaN(noakhiliDonate)){
+        document.getElementById('Amount-error1').classList.remove('hidden');
+        return;
+    }
+    
     const total = NoakhiliDonate + noakhiliDonate ;
     document.getElementById('noakhaliCollect').innerText = total ;
 
     
     const MainBlance = Blance - noakhiliDonate ;
     document.getElementById('mainBlance').innerText = MainBlance;
-
 
     const HistoryIteam = document.createElement('div');
     HistoryIteam.className = "border rounded-xl p-5 border-[#1111111A]";
@@ -23,12 +28,7 @@ document.getElementById('Noakhili-now').addEventListener('click',function(){
     const HistoryContainer = document.getElementById('historyList');
     HistoryContainer.insertBefore(HistoryIteam,HistoryContainer.firstChild);
 
-    if(noakhiliDonate < 0 || isNaN(noakhiliDonate)){
-        document.getElementById('Amount-error1').classList.remove('hidden');
-        return;
-    }
-
-})
+});
 
 
 document.getElementById('feni-now').addEventListener('click',function(){
@@ -37,6 +37,10 @@ document.getElementById('feni-now').addEventListener('click',function(){
     const Blance = parseFloat(document.getElementById('mainBlance').innerText);
     if(feni_donate > Blance){
         document.getElementById('logic-error2').classList.remove('hidden');
+        return;
+    }
+    if(feni_donate < 0 || isNaN(feni_donate)){
+        document.getElementById('Amount-error2').classList.remove('hidden');
         return;
     }
     const total = feni_donate + feniDonate ;
@@ -53,13 +57,7 @@ document.getElementById('feni-now').addEventListener('click',function(){
     `;
     const HistoryContainer = document.getElementById('historyList');
     HistoryContainer.insertBefore(HistoryIteam,HistoryContainer.firstChild);
-
-    if(feni_donate < 0 || isNaN(feni_donate)){
-        document.getElementById('Amount-error2').classList.remove('hidden');
-        return;
-    }
-
-})
+});
 
 
 document.getElementById('donate_stProtest').addEventListener('click',function(){
@@ -69,6 +67,11 @@ document.getElementById('donate_stProtest').addEventListener('click',function(){
     
     if(protest_donate > Blance){
         document.getElementById('logic-error3').classList.remove('hidden');
+        return;
+    }
+
+    if(protest_donate < 0 || isNaN(protest_donate)){
+        document.getElementById('Amount-error3').classList.remove('hidden');
         return;
     }
     const total = protestDonate + protest_donate;
@@ -84,20 +87,11 @@ document.getElementById('donate_stProtest').addEventListener('click',function(){
     `;
     const HistoryContainer = document.getElementById('historyList');
     HistoryContainer.insertBefore(HistoryIteam,HistoryContainer.firstChild);
-
-    if(protest_donate < 0 || isNaN(protest_donate)){
-        document.getElementById('Amount-error3').classList.remove('hidden');
-        return;
-    }
-
-    
-})
-
-
+});
 
 document.getElementById('donateNow').addEventListener('click',function(){
     
-})
+});
 
 
 const HistoryTab = document.getElementById('history');
@@ -136,7 +130,7 @@ const Donate = document.getElementById('donateNow');
 
     const card = document.getElementById('donateCard');
     card.classList.add('hidden');
-})
+});
 
 Donate.addEventListener('click', function(){
     const card = document.getElementById('donateCard');
@@ -164,4 +158,13 @@ Donate.addEventListener('click', function(){
 
     const historyIteam = document.getElementById('history-section');
     historyIteam.classList.add('hidden');
-})
+});
+
+function clearField2(){
+    document.getElementById('donate2').value = '';
+    document.getElementById('donate1').value = '';
+    document.getElementById('donate3').value = '';
+};
+document.getElementById('blogBtn').addEventListener('click',function(){
+    window.location.href = '/Blog.html';
+});
