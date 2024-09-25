@@ -1,10 +1,15 @@
 document.getElementById('Noakhili-now').addEventListener('click',function(){
     const noakhiliDonate = parseFloat(document.getElementById('donate2').value);
     const NoakhiliDonate = parseFloat(document.getElementById('noakhaliCollect').innerText);
+    const Blance = parseFloat(document.getElementById('mainBlance').innerText);
+    if(noakhiliDonate > Blance){
+        document.getElementById('logic-error1').classList.remove('hidden');
+        return;
+    }
     const total = NoakhiliDonate + noakhiliDonate ;
     document.getElementById('noakhaliCollect').innerText = total ;
 
-    const Blance = parseFloat(document.getElementById('mainBlance').innerText);
+    
     const MainBlance = Blance - noakhiliDonate ;
     document.getElementById('mainBlance').innerText = MainBlance;
 
@@ -17,6 +22,12 @@ document.getElementById('Noakhili-now').addEventListener('click',function(){
     `;
     const HistoryContainer = document.getElementById('historyList');
     HistoryContainer.insertBefore(HistoryIteam,HistoryContainer.firstChild);
+
+    if(noakhiliDonate < 0 || isNaN(noakhiliDonate)){
+        document.getElementById('Amount-error1').classList.remove('hidden');
+        return;
+    }
+
 })
 
 
@@ -24,7 +35,10 @@ document.getElementById('feni-now').addEventListener('click',function(){
     const feni_donate = parseFloat(document.getElementById('donate1').value);
     const feniDonate = parseFloat(document.getElementById('feni_collect').innerText);
     const Blance = parseFloat(document.getElementById('mainBlance').innerText);
-
+    if(feni_donate > Blance){
+        document.getElementById('logic-error2').classList.remove('hidden');
+        return;
+    }
     const total = feni_donate + feniDonate ;
     document.getElementById('feni_collect').innerText = total ;
    
@@ -39,16 +53,26 @@ document.getElementById('feni-now').addEventListener('click',function(){
     `;
     const HistoryContainer = document.getElementById('historyList');
     HistoryContainer.insertBefore(HistoryIteam,HistoryContainer.firstChild);
+
+    if(feni_donate < 0 || isNaN(feni_donate)){
+        document.getElementById('Amount-error2').classList.remove('hidden');
+        return;
+    }
+
 })
 
 
 document.getElementById('donate_stProtest').addEventListener('click',function(){
     const protest_donate = parseFloat(document.getElementById('donate3').value);
     const protestDonate = parseFloat(document.getElementById('stProtest_collect').innerText);
+    const Blance = parseFloat(document.getElementById('mainBlance').innerText);
+    
+    if(protest_donate > Blance){
+        document.getElementById('logic-error3').classList.remove('hidden');
+        return;
+    }
     const total = protestDonate + protest_donate;
     document.getElementById('stProtest_collect').innerText = total ;
-
-    const Blance = parseFloat(document.getElementById('mainBlance').innerText);
     const MainBlance = Blance - protest_donate ;
     document.getElementById('mainBlance').innerText = MainBlance;
 
@@ -60,6 +84,13 @@ document.getElementById('donate_stProtest').addEventListener('click',function(){
     `;
     const HistoryContainer = document.getElementById('historyList');
     HistoryContainer.insertBefore(HistoryIteam,HistoryContainer.firstChild);
+
+    if(protest_donate < 0 || isNaN(protest_donate)){
+        document.getElementById('Amount-error3').classList.remove('hidden');
+        return;
+    }
+
+    
 })
 
 
